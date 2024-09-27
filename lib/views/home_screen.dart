@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 5.0),
                 child: Text(
-                  provider.country_code,
+                  provider.countryCode,
                   style: whiteTextStyle,
                 ),
               ),
@@ -64,26 +64,33 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: blue,
                   ),
                 )
-              : Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(top: 20.0, left: 10, bottom: 5),
+              : provider.news.isEmpty
+                  ? Center(
                       child: Text(
-                        'Top Headlines',
+                        'No news available',
                         style: blackBoldTextStyle,
                       ),
+                    )
+                  : Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              top: 20.0, left: 10, bottom: 5),
+                          child: Text(
+                            'Top Headlines',
+                            style: blackBoldTextStyle,
+                          ),
+                        ),
+                        Expanded(
+                          child: ListView.builder(
+                            itemCount: provider.news.length,
+                            itemBuilder: (context, index) =>
+                                Newstile(newsmodel: provider.news[index]),
+                          ),
+                        ),
+                      ],
                     ),
-                    Expanded(
-                      child: ListView.builder(
-                        itemCount: provider.news.length,
-                        itemBuilder: (context, index) =>
-                            Newstile(newsmodel: provider.news[index]),
-                      ),
-                    ),
-                  ],
-                ),
         ),
       )),
     );

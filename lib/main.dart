@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:mynews/providers/provider.dart';
-import 'package:mynews/views/login_screen.dart';
 import 'package:mynews/views/splash_screen.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
