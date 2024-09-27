@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mynews/utils/animated_routing.dart';
 import 'package:mynews/utils/themes.dart';
 import 'package:mynews/views/login_screen.dart';
 import 'package:mynews/views/signup_screen.dart';
@@ -15,7 +16,7 @@ Widget customLoginSignupWidget(BuildContext context,{bool login = true}) {
         ),),
         GestureDetector(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) =>login?const SignupScreen():const LoginScreen(),));
+            Navigator.pushReplacement(context, customRoute(login?const SignupScreen():const LoginScreen(),));
           },
           child: Text(login ? 'Signup' : 'Login',style: TextStyle(
             fontSize: 13,

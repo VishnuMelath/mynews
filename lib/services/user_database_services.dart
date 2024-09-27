@@ -1,4 +1,6 @@
+
 import 'dart:developer';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:mynews/models/user_model.dart';
 
@@ -9,9 +11,8 @@ class UserDatabaseServices {
     try {
       final userCollection = firestore.collection('user');
       await userCollection.doc(user.email).set(user.toJson());
-    } on FirebaseException catch (e) {
-      log(e.code);
-      rethrow;
+    }  catch (e) {
+      log(e.toString());
     }
   }
 }

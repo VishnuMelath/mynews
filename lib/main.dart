@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:mynews/views/home_screen.dart';
+import 'package:mynews/providers/provider.dart';
 import 'package:mynews/views/login_screen.dart';
+import 'package:mynews/views/splash_screen.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -9,7 +11,9 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => UserProvider(),
+    child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -22,7 +26,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const LoginScreen(),
+      home: const SplashScreen(),
     );
   }
 }

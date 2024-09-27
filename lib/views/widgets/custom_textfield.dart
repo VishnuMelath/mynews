@@ -4,6 +4,7 @@ import 'package:mynews/utils/themes.dart';
 Widget customTextField(
     {required String label,
     void Function()? onTap,
+    bool pass=false,
     required TextEditingController controller}) {
   return Padding(
     padding: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 15),
@@ -12,7 +13,8 @@ Widget customTextField(
       decoration: const BoxDecoration(
           color: white, borderRadius: BorderRadius.all(Radius.circular(10))),
       child: TextFormField(
-        style: const TextStyle(fontSize: 12),
+        obscureText: label=='Password',
+        style: const TextStyle(fontSize: 15),
         autovalidateMode: AutovalidateMode.onUserInteraction,
         controller: controller,
         validator: (value) {
