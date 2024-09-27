@@ -51,7 +51,10 @@ class Newstile extends StatelessWidget {
                 ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Image.network(
+
                       newsmodel.image,
+                       errorBuilder: (context, error, stackTrace) => const SizedBox(width: 110,
+                      height: 110,child: Center(child: Icon(Icons.image),),),
                       width: 110,
                       height: 110,
                       fit: BoxFit.cover,

@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:mynews/models/user_model.dart';
 import 'package:mynews/providers/provider.dart';
-import 'package:mynews/views/widgets/custom_snackbar.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/themes.dart';

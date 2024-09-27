@@ -1,4 +1,3 @@
-import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:mynews/views/widgets/custom_appbar.dart';
@@ -9,7 +8,6 @@ import 'package:provider/provider.dart';
 
 import '../providers/provider.dart';
 import '../utils/themes.dart';
-import 'widgets/custom_snackbar.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
